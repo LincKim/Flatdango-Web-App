@@ -1,0 +1,23 @@
+{
+  "name": "flatdango-web-app",
+  "version": "1.0.0",
+  "description": "Movie tickets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LincKim/Flatdango-Web-App.git"
+  },
+  "keywords": [
+    "tickets",
+    "movies"
+  ],
+  "author": "Lincoln Kimutai Too",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LincKim/Flatdango-Web-App/issues"
+  },
+  "homepage": "https://github.com/LincKim/Flatdango-Web-App#readme"
+}
