@@ -13,7 +13,7 @@ This application was built with the following technologies:
 ### GETTING STARTED
 If you need to clone this repo then these are the steps to take:
 
-Open a terminal / command line interface on your computer and navigate to your desired directory to clone the repository.
+Open a terminal / command line interface on your computer and navigate to your desired directory.
 
 Clone the repo by using the following:
 
@@ -25,6 +25,8 @@ Clone the repo by using the following:
 
 
 ### PREREQUISITES
+The app will be live and the link is provided further down the short read.
+
 Otherwise if you need it at you local machine then follow the following steps: 
 
 Install the JSON Server if you dont have it yet using the following commands through your terminal:
