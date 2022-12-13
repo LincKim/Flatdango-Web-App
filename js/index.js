@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (Math.abs(capacity - tickets_sold) > 0){
                     const buyingTicket = document.createElement('button')
 
-                    buyingTicket.className = 'btn'
+                    buyingTicket.className = 'button'
                     buyingTicket.textContent = `buy ticket`
 
                     buyingTicket.addEventListener('click', (e) => {
@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         inputThree.textContent = `Email: `
 
                         const submitButton = document.createElement('button')
-                        submitButton.className = 'btn'
+                        submitButton.className = 'button'
                         submitButton.innerText = `submit`
-                        submitButton.addEventListener('submit', (e) => alert('You will receive a confirmation SMS shortly'))
+                        submitButton.addEventListener('submit', () => alert('You will receive a confirmation SMS shortly'))
 
                         payTicket.appendChild(inputOne)
                         payTicket.appendChild(inputTwo)
@@ -55,36 +55,35 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
                 }else if (Math.abs(capacity - tickets_sold) === 0){
                     return buyingTicket.addEventListener('mouseover', () => {alert('We are out of tickets!')})
-                }
-                movieOne.appendChild(moviePoster)
-                movieOne.appendChild(movieTitle)
-                movieOne.appendChild(movieRuntime)
-                movieOne.appendChild(movieShowtime)
-                movieOne.appendChild(movietickets_sold)
+                }}
+            movieOne.appendChild(moviePoster)
+            movieOne.appendChild(movieTitle)
+            movieOne.appendChild(movieRuntime)
+            movieOne.appendChild(movieShowtime)
+            movieOne.appendChild(movietickets_sold)
 
                 // document.getElementById('main').appendChild(movieOne)
-            }
+            return movieOne
+        }
     function getMovies() {
      fetch(MOVIES)
         .then((res) => res.json())
         .then((data) => {
-            const filmData = data.film[0]
-            const poster = filmData.poster
-            const title = filmData.title
-            const runtime = filmData.runtime
-            const showtime = filmData.showtime
-            const tickets_sold = filmData.tickets_sold
+            const filmData = data.films[id]
+            const pic = filmData.poster
+            const name = filmData.title
+            const howLong = filmData.runtime
+            const time = filmData.showtime
+            const ticketNo = filmData.tickets_sold
             const filmElement = defaultMovie(poster, title, runtime, showtime, tickets_sold, capacity)
-            document.getElementById('main').appendChild(filmElement)
+            document.getElementById('main').append(filmElement)
+        
         })
     }
-    function initialize() {
-        getMovies()
-        
-    }  
-    initialize()
-}  
-defaultMovie()
-
+    getMovies()
+    
+  
+    
+    defaultMovie()
    
 })
