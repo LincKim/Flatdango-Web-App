@@ -1,5 +1,17 @@
-/* body {
-    background-image: url("./road.jpg");
-    background-repeat: no-repeat;
+ /* body {
+   background-image: url("./road.jpg");
+    background-repeat: repeat;
     background-size: 1300px 670px;
+}  */
+body {
+    background-color: #81F495;
+}
+
+/* #main {
+    display: flex;
+    
+} */
+
+/* #all_movies {
+    display: flex;
 } */

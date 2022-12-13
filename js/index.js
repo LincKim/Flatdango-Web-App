@@ -2,65 +2,68 @@ const MOVIES = 'http://localhost:3000/films'
 
 document.addEventListener('DOMContentLoaded', () => {
     
-        function defaultMovie(poster, title, runtime, showtime, tickets_sold, capacity) {
+        function defaultMovie(poster, title, runtime, showtime, tickets_sold, capacity, description) {
             const movieOne = document.createElement('div')
-            movieOne.classList.add('card', 'col-12')
-            movieOne.className = 'topMovie'
+            movieOne.classList.add('card', 'col-3')
+
+            const supportDiv = document.createElement('div')
+            supportDiv.classList.add('card', 'col-12', 'p-2')
 
             const moviePoster = document.createElement('img')
+            // moviePoster.classList.add('' )
             moviePoster.src = poster
 
             const movieTitle = document.createElement('h3')
             movieTitle.innerText = title
 
             const movieRuntime = document.createElement('p')
-            movieRuntime.innerText = `runs for: ${runtime} mins`
+            movieRuntime.innerText = `Runs for: ${runtime} mins`
 
             const movieShowtime = document.createElement('p')
-            movieShowtime.innerText = `Time: ${showtime} hrs`
+            movieShowtime.innerText = `Time: ${showtime}`
+
+            const theaterCapacity = document.createElement('p')
+            theaterCapacity.textContent = `Theater Capacity: ${capacity}`
 
             const movietickets_sold = document.createElement('p')
-            movietickets_sold.innerText = function actualTickets() {
-                if (Math.abs(capacity - tickets_sold) > 0){
-                    const buyingTicket = document.createElement('button')
+            movietickets_sold.innerText = `Tickets Sold: ${tickets_sold}`
 
-                    buyingTicket.className = 'button'
-                    buyingTicket.textContent = `buy ticket`
+            const movieDescript = document.createElement('p')
+            movieDescript.textContent = `Description: ${description}`
 
-                    buyingTicket.addEventListener('click', (e) => {
-                        e.preventDefault()
-                        const payTicket = document.createElement('form')
-                        
-                        const inputOne = document.createElement('input')
-                        inputOne.textContent = `Name: `
+            // const availableSeats = 
 
-                        const inputTwo = document.createElement('input')
-                        inputTwo.textContent = `Phone: `
+            const buyingTicket = document.createElement('button')
+            buyingTicket.textContent = `Buy Ticket`
 
-                        const inputThree = document.createElement('input')
-                        inputThree.textContent = `Email: `
+            let c = capacity
+            let b = tickets_sold
 
-                        const submitButton = document.createElement('button')
-                        submitButton.className = 'button'
-                        submitButton.innerText = `submit`
-                        submitButton.addEventListener('submit', () => alert('You will receive a confirmation SMS shortly'))
-
-                        payTicket.appendChild(inputOne)
-                        payTicket.appendChild(inputTwo)
-                        payTicket.appendChild(inputThree)
-                        payTicket.appendChild(submitButton)
-
-                        return payTicket
-                        
-                    })
-                }else if (Math.abs(capacity - tickets_sold) === 0){
-                    return buyingTicket.addEventListener('mouseover', () => {alert('We are out of tickets!')})
-                }}
+            buyingTicket.addEventListener('click', () => {
+               if (c === b){
+                alert('Tickets sold out!')
+               }else {
+                    b++
+                    movietickets_sold.innerText = `Tickets Sold: ${b}`
+               }
+               
+                // if (capacity - tickets_sold > 0) {
+                //     // tickets_sold
+                
+                // }else if (Math.abs(capacity - tickets_sold) === 0) {
+                //     return `We are sold out for now!`
+                // }
+            })
+           
+            movieOne.appendChild(supportDiv)
             movieOne.appendChild(moviePoster)
             movieOne.appendChild(movieTitle)
             movieOne.appendChild(movieRuntime)
             movieOne.appendChild(movieShowtime)
+            movieOne.appendChild(theaterCapacity)
             movieOne.appendChild(movietickets_sold)
+            movieOne.appendChild(movieDescript)
+            movieOne.appendChild(buyingTicket)
 
                 // document.getElementById('main').appendChild(movieOne)
             return movieOne
@@ -69,18 +72,42 @@ document.addEventListener('DOMContentLoaded', () => {
      fetch(MOVIES)
         .then((res) => res.json())
         .then((data) => {
-            const filmData = data.films[id]
-            const pic = filmData.poster
-            const name = filmData.title
-            const howLong = filmData.runtime
-            const time = filmData.showtime
-            const ticketNo = filmData.tickets_sold
-            const filmElement = defaultMovie(poster, title, runtime, showtime, tickets_sold, capacity)
-            document.getElementById('main').append(filmElement)
+            console.log(data);
+            const filmData = data[0]
+            const poster = filmData.poster
+            const title = filmData.title
+            const runtime = filmData.runtime
+            const showtime = filmData.showtime
+            const capacity= filmData.capacity
+            const description = filmData.description
+            const tickets_sold = filmData.tickets_sold
+            const filmElement = defaultMovie(poster, title, runtime, showtime, tickets_sold, capacity, description)
+            document.getElementById('main').appendChild(filmElement)
         
         })
     }
     getMovies()
+
+    function getAllElements () {
+        fetch(MOVIES)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+            data.forEach((data) => {
+            const filmData = data
+            const poster = filmData.poster
+            const title = filmData.title
+            const runtime = filmData.runtime
+            const showtime = filmData.showtime
+            const capacity= filmData.capacity
+            const description = filmData.description
+            const tickets_sold = filmData.tickets_sold
+            const filmElement = defaultMovie(poster, title, runtime, showtime, tickets_sold, capacity, description)
+            document.getElementById('all_movies').appendChild(filmElement)
+            })
+        })
+    }
+    getAllElements()
     
   
     
