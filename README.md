@@ -64,7 +64,7 @@ The Code Challenge tests my understanding on:
 
 ## Deployment
 This Webpage is hosted on Github.
-Flatdango is live via these <link:>
+Flatdango is live via these link: https://linc-tryout.netlify.app/
 
 ## Contributing
 ## Versioning

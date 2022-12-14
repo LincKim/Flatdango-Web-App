@@ -47,12 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     movietickets_sold.innerText = `Tickets Sold: ${b}`
                }
                
-                // if (capacity - tickets_sold > 0) {
-                //     // tickets_sold
-                
-                // }else if (Math.abs(capacity - tickets_sold) === 0) {
-                //     return `We are sold out for now!`
-                // }
             })
            
             movieOne.appendChild(supportDiv)
@@ -108,9 +102,16 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
     getAllElements()
-    
-  
-    
-    defaultMovie()
+
+    // function nameOnly(film) {
+    //     const list = document.getElementById('name-list')
+    //     const listTag = document.createElement('a')
+    //     listTag.textContent = movieTitle
+    //     list.appendChild(listTag)
+    //     listTag.addEventListener('click', () => getAllElements(film))
+        
+    // }
+    // nameOnly()
+    // defaultMovie()
    
 })
