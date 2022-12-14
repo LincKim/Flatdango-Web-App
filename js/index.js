@@ -56,14 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
             })
            
             movieOne.appendChild(supportDiv)
-            movieOne.appendChild(moviePoster)
-            movieOne.appendChild(movieTitle)
-            movieOne.appendChild(movieRuntime)
-            movieOne.appendChild(movieShowtime)
-            movieOne.appendChild(theaterCapacity)
-            movieOne.appendChild(movietickets_sold)
-            movieOne.appendChild(movieDescript)
-            movieOne.appendChild(buyingTicket)
+            supportDiv.appendChild(moviePoster)
+            supportDiv.appendChild(movieTitle)
+            supportDiv.appendChild(movieRuntime)
+            supportDiv.appendChild(movieShowtime)
+            supportDiv.appendChild(theaterCapacity)
+            supportDiv.appendChild(movietickets_sold)
+            supportDiv.appendChild(movieDescript)
+            supportDiv.appendChild(buyingTicket)
 
                 // document.getElementById('main').appendChild(movieOne)
             return movieOne
