@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
             supportDiv.classList.add('card', 'col-12', 'p-2')
 
             const moviePoster = document.createElement('img')
-            // moviePoster.classList.add('' )
             moviePoster.src = poster
 
             const movieTitle = document.createElement('h3')
@@ -30,8 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const movieDescript = document.createElement('p')
             movieDescript.textContent = `Description: ${description}`
-
-            // const availableSeats = 
 
             const buyingTicket = document.createElement('button')
             buyingTicket.textContent = `Buy Ticket`
@@ -59,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             supportDiv.appendChild(movieDescript)
             supportDiv.appendChild(buyingTicket)
 
-                // document.getElementById('main').appendChild(movieOne)
+                
             return movieOne
         }
     function getMovies() {
@@ -102,16 +99,5 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
     getAllElements()
-
-    // function nameOnly(film) {
-    //     const list = document.getElementById('name-list')
-    //     const listTag = document.createElement('a')
-    //     listTag.textContent = movieTitle
-    //     list.appendChild(listTag)
-    //     listTag.addEventListener('click', () => getAllElements(film))
-        
-    // }
-    // nameOnly()
-    // defaultMovie()
    
 })
