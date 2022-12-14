@@ -1,4 +1,4 @@
-const MOVIES = 'http://localhost:3000/films'
+const MOVIES = 'https://linc-tryout.netlify.app/db.json'
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
-            const filmData = data[0]
+            const filmData = data.films[0]
             const poster = filmData.poster
             const title = filmData.title
             const runtime = filmData.runtime
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((res) => res.json())
         .then((data) => {
             console.log(data)
-            data.forEach((data) => {
+            data.films.forEach((data) => {
             const filmData = data
             const poster = filmData.poster
             const title = filmData.title
